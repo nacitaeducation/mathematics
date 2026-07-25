@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bab 1: Bilangan Berpangkat — Matematika Kelas 8</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B2A41;
+    --paper:#EEF3EF;
+    --paper-line:#DDE6DE;
+    --teal:#147D77;
+    --teal-dark:#0E5C58;
+    --amber:#E3A23B;
+    --amber-dark:#C17E1F;
+    --coral:#D6553F;
+    --slate:#5B6670;
+    --card:#FFFFFF;
+    --c1:#147D77;
+    --c2:#3C8F6E;
+    --c3:#C9942F;
+    --c4:#D07A38;
+    --c5:#D6553F;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Public Sans',sans-serif;
+    color:var(--ink);
+    background-color:var(--paper);
+    background-image:
+      linear-gradient(var(--paper-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--paper-line) 1px, transparent 1px);
+    background-size:28px 28px;
+    line-height:1.6;
+  }
+  h1,h2,h3,h4{font-family:'Fraunces',serif; margin:0; color:var(--ink);}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  a{color:var(--teal-dark);}
+  .wrap{max-width:960px; margin:0 auto; padding:0 20px;}
+
+  header.top{background:var(--ink); color:#fff; padding:34px 0 26px;}
+  header.top .eyebrow{font-family:'IBM Plex Mono',monospace; letter-spacing:.12em; text-transform:uppercase; font-size:12.5px; color:#9FC7C3; margin-bottom:10px;}
+  header.top h1{font-size:clamp(28px,5vw,44px); font-weight:600; color:#fff; line-height:1.15;}
+  header.top .sub{color:#C7D3D6; font-size:16px; margin-top:10px; max-width:620px;}
+
+  .scale-wrap{margin-top:28px; overflow-x:auto;}
+  .scale-svg{display:block; min-width:640px;}
+  .scale-caption{font-size:12.5px; color:#9FC7C3; margin-top:6px; font-family:'IBM Plex Mono',monospace;}
+
+  nav.tabs{position:sticky; top:0; z-index:50; background:rgba(238,243,239,0.96); backdrop-filter:blur(4px); border-bottom:1px solid var(--paper-line);}
+  nav.tabs .tabs-inner{display:flex; gap:4px; overflow-x:auto; padding:10px 20px; max-width:960px; margin:0 auto;}
+  nav.tabs button{flex:none; font-family:'IBM Plex Mono',monospace; font-size:13px; background:transparent; border:1px solid transparent; color:var(--slate); padding:8px 13px; border-radius:20px; cursor:pointer; white-space:nowrap; transition:all .15s ease;}
+  nav.tabs button:hover{border-color:var(--teal);}
+  nav.tabs button.active{background:var(--ink); color:#fff;}
+  nav.tabs button .dot{display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--amber); margin-left:6px; vertical-align:middle; opacity:0; transition:opacity .15s;}
+  nav.tabs button .dot.done{opacity:1;}
+
+  main{padding:40px 0 100px;}
+  section.panel{display:none; animation:fade .25s ease;}
+  section.panel.active{display:block;}
+  @keyframes fade{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:none;}}
+
+  .num-badge{display:inline-flex; align-items:center; gap:10px; font-family:'Fraunces',serif; font-weight:600; font-size:15px; color:var(--teal-dark); margin-bottom:6px;}
+  .num-badge .n{font-size:34px; color:var(--ink); line-height:1;}
+  .section-title{border-bottom:3px solid var(--amber); padding-bottom:14px; margin-bottom:22px;}
+  .section-title h2{font-size:clamp(22px,3.4vw,30px);}
+  .section-title p.desc{color:var(--slate); margin-top:6px; font-size:15px; max-width:640px;}
+
+  .card{background:var(--card); border:1px solid var(--paper-line); border-radius:6px; padding:22px 24px; margin-bottom:20px;}
+  .card h3{font-size:19px; margin-bottom:10px; color:var(--teal-dark);}
+  .card h4{font-size:16px; margin:16px 0 8px; color:var(--ink);}
+
+  .callout{border-left:4px solid var(--teal); background:#F2FAF8; padding:16px 18px; border-radius:0 6px 6px 0; margin:18px 0;}
+  .callout.amber{border-color:var(--amber); background:#FCF6EA;}
+  .callout.coral{border-color:var(--coral); background:#FCF1EE;}
+  .callout .lbl{font-family:'IBM Plex Mono',monospace; font-size:11.5px; text-transform:uppercase; letter-spacing:.08em; color:var(--teal-dark); display:block; margin-bottom:6px;}
+  .callout.amber .lbl{color:var(--amber-dark);}
+  .callout.coral .lbl{color:var(--coral);}
+
+  .example{border:1px dashed #C9D4CB; border-radius:6px; padding:18px 20px; margin:16px 0; background:#FAFBF9;}
+  .example .tag{font-family:'IBM Plex Mono',monospace; font-size:11.5px; background:var(--ink); color:#fff; padding:3px 9px; border-radius:20px; display:inline-block; margin-bottom:10px;}
+  .example .solve{margin-top:10px; padding-top:10px; border-top:1px solid #E2E7E1;}
+  .example .solve .lbl{font-weight:600; color:var(--teal-dark); font-size:13.5px;}
+
+  .expr{font-family:'IBM Plex Mono',monospace; font-size:1.05em; background:#F1F5F1; padding:2px 6px; border-radius:4px;}
+  sup{font-size:.68em;}
+
+  table.ref{width:100%; border-collapse:collapse; margin:14px 0; font-size:14.5px;}
+  table.ref th, table.ref td{border:1px solid var(--paper-line); padding:9px 12px; text-align:left;}
+  table.ref th{background:#F2F5F2; font-family:'IBM Plex Mono',monospace; font-size:12.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--slate);}
+
+  .gauge-wrap{display:flex; align-items:center; gap:16px; margin-top:14px;}
+  .gauge-bar{flex:1; height:10px; background:#E3E9E4; border-radius:6px; overflow:hidden;}
+  .gauge-fill{height:100%; width:0%; background:linear-gradient(90deg,var(--coral),var(--amber),var(--teal)); transition:width .4s ease;}
+  .gauge-label{font-family:'IBM Plex Mono',monospace; font-size:13px; min-width:64px; text-align:right;}
+
+  .quiz-item{border:1px solid var(--paper-line); border-radius:6px; padding:18px 20px; margin-bottom:14px; background:var(--card);}
+  .quiz-item .qhead{display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:10px;}
+  .qnum{font-family:'Fraunces',serif; font-weight:600; font-size:17px; color:var(--ink);}
+  .badge-c{font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:600; color:#fff; padding:2px 9px; border-radius:20px; white-space:nowrap;}
+  .qtext{margin-bottom:12px;}
+  .opts{display:flex; flex-direction:column; gap:8px;}
+  .opt{display:flex; align-items:center; gap:10px; border:1px solid var(--paper-line); border-radius:5px; padding:9px 12px; cursor:pointer; font-size:14.5px; background:#FCFDFC; transition:border-color .12s, background .12s;}
+  .opt:hover{border-color:var(--teal);}
+  .opt input{accent-color:var(--teal-dark);}
+  .opt.correct{border-color:var(--teal); background:#EAF6F2;}
+  .opt.wrong{border-color:var(--coral); background:#FCEEEC;}
+  .feedback{margin-top:10px; padding:10px 14px; border-radius:5px; font-size:14px; display:none;}
+  .feedback.show{display:block;}
+  .feedback.ok{background:#EAF6F2; color:var(--teal-dark); border:1px solid var(--teal);}
+  .feedback.bad{background:#FCEEEC; color:#A6412F; border:1px solid var(--coral);}
+  .essay-box textarea{width:100%; min-height:70px; border:1px solid var(--paper-line); border-radius:5px; padding:10px 12px; font-family:'Public Sans',sans-serif; font-size:14.5px; resize:vertical;}
+  .reveal-btn, .check-btn{font-family:'IBM Plex Mono',monospace; font-size:12.5px; background:var(--ink); color:#fff; border:none; padding:8px 14px; border-radius:20px; cursor:pointer; margin-top:8px;}
+  .reveal-btn:hover, .check-btn:hover{background:var(--teal-dark);}
+  .model-answer{display:none; margin-top:10px; background:#F2FAF8; border-left:4px solid var(--teal); padding:12px 14px; border-radius:0 5px 5px 0; font-size:14px;}
+  .model-answer.show{display:block;}
+
+  .quiz-summary{display:flex; align-items:center; justify-content:space-between; gap:16px; background:var(--ink); color:#fff; border-radius:6px; padding:16px 20px; margin-top:6px;}
+  .quiz-summary .score{font-family:'Fraunces',serif; font-size:26px;}
+  .quiz-summary .note{font-size:13px; color:#C7D3D6;}
+
+  .tool{border:1px solid var(--paper-line); border-radius:6px; background:#FBFCFB; padding:20px; margin:18px 0;}
+  .tool .tool-label{font-family:'IBM Plex Mono',monospace; font-size:11.5px; text-transform:uppercase; letter-spacing:.08em; color:var(--teal-dark); margin-bottom:12px; display:block;}
+  .tool input[type=range]{width:100%; accent-color:var(--teal-dark);}
+  .tool input[type=number], .tool input[type=text]{border:1px solid var(--paper-line); border-radius:5px; padding:8px 10px; font-family:'IBM Plex Mono',monospace; font-size:14px; width:120px;}
+  .tool button.go{font-family:'IBM Plex Mono',monospace; font-size:13px; background:var(--teal-dark); color:#fff; border:none; padding:9px 16px; border-radius:20px; cursor:pointer; margin-left:8px;}
+  .tool button.go:hover{background:var(--ink);}
+  .block-row{display:flex; gap:6px; flex-wrap:wrap; margin:14px 0; align-items:flex-end;}
+  .cube{background:var(--amber); border:1px solid var(--amber-dark); border-radius:3px;}
+
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  @media (max-width:720px){.grid2{grid-template-columns:1fr;}}
+
+  footer.page{padding:30px 0 60px; text-align:center; color:var(--slate); font-size:13px;}
+
+  .toc-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:20px;}
+  @media (max-width:720px){.toc-grid{grid-template-columns:1fr;}}
+  .toc-card{border:1px solid var(--paper-line); background:var(--card); border-radius:6px; padding:16px 18px; cursor:pointer; transition:transform .12s, border-color .12s;}
+  .toc-card:hover{transform:translateY(-2px); border-color:var(--teal);}
+  .toc-card .tnum{font-family:'IBM Plex Mono',monospace; color:var(--teal-dark); font-size:13px;}
+  .toc-card h4{margin-top:4px;}
+
+  .flash-card{background:var(--ink); color:#fff; border-radius:10px; padding:40px 30px; text-align:center; font-family:'IBM Plex Mono',monospace; font-size:clamp(28px,6vw,40px); margin:20px 0;}
+  .game-stats{display:flex; gap:20px; justify-content:center; margin:14px 0; font-family:'IBM Plex Mono',monospace; font-size:14px;}
+  .game-stats div{background:#fff; border:1px solid var(--paper-line); border-radius:6px; padding:8px 16px;}
+  .game-input{display:flex; gap:10px; justify-content:center; margin-top:16px;}
+  .game-input input{font-size:20px; text-align:center; width:110px; padding:8px; border:2px solid var(--teal); border-radius:6px; font-family:'IBM Plex Mono',monospace;}
+
+  .ref-card{background:linear-gradient(135deg,#123B39,var(--ink)); color:#fff; border-radius:10px; padding:26px 28px; margin-bottom:18px;}
+  .ref-card h3{color:#fff; font-size:18px; margin-bottom:14px;}
+  .ref-card table.ref{color:#fff;}
+  .ref-card table.ref th{background:rgba(255,255,255,0.08); color:#C7D3D6;}
+  .ref-card table.ref td, .ref-card table.ref th{border-color:rgba(255,255,255,0.15);}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="eyebrow">Matematika · Kelas 8 SMP · Kurikulum Merdeka</div>
+    <h1>Bab 1 — Bilangan Berpangkat</h1>
+    <p class="sub">Dari perkalian berulang hingga menuliskan jarak Bumi-Matahari dalam beberapa karakter saja: bilangan berpangkat adalah cara matematika "mempersingkat" angka yang sangat besar maupun sangat kecil.</p>
+    <div class="scale-wrap">
+      <svg class="scale-svg" viewBox="0 0 900 130" xmlns="http://www.w3.org/2000/svg">
+        <line x1="20" y1="70" x2="880" y2="70" stroke="#3E5654" stroke-width="2"/>
+        <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#C7D3D6">
+          <circle cx="60" cy="70" r="3.5" fill="#E3A23B"/>
+          <text x="60" y="95" text-anchor="middle">10&#8315;&#185;&#8304; m</text>
+          <text x="60" y="110" text-anchor="middle" fill="#9FC7C3">atom</text>
+
+          <circle cx="200" cy="70" r="3.5" fill="#E3A23B"/>
+          <text x="200" y="95" text-anchor="middle">10&#8315;&#8309; m</text>
+          <text x="200" y="110" text-anchor="middle" fill="#9FC7C3">virus</text>
+
+          <circle cx="340" cy="70" r="3.5" fill="#E3A23B"/>
+          <text x="340" y="95" text-anchor="middle">10&#8315;&#179; m</text>
+          <text x="340" y="110" text-anchor="middle" fill="#9FC7C3">semut</text>
+
+          <circle cx="460" cy="70" r="4.5" fill="#D6553F"/>
+          <text x="460" y="50" text-anchor="middle" fill="#fff">10&#8304; m</text>
+          <text x="460" y="95" text-anchor="middle" fill="#9FC7C3">manusia</text>
+
+          <circle cx="580" cy="70" r="3.5" fill="#E3A23B"/>
+          <text x="580" y="95" text-anchor="middle">10&#179; m</text>
+          <text x="580" y="110" text-anchor="middle" fill="#9FC7C3">gunung</text>
+
+          <circle cx="720" cy="70" r="3.5" fill="#E3A23B"/>
+          <text x="720" y="95" text-anchor="middle">10&#8309; m</text>
+          <text x="720" y="110" text-anchor="middle" fill="#9FC7C3">Bumi</text>
+
+          <circle cx="850" cy="70" r="3.5" fill="#E3A23B"/>
+          <text x="850" y="95" text-anchor="middle">10&#185;&#185; m</text>
+          <text x="850" y="110" text-anchor="middle" fill="#9FC7C3">tata surya</text>
+        </g>
+      </svg>
+      <div class="scale-caption">Skala ukuran alam semesta - dari inti atom sampai tata surya, semuanya bisa ditulis ringkas dengan bilangan berpangkat 10.</div>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="tabs-inner" id="tabBar">
+    <button data-target="overview" class="active">Ringkasan Bab</button>
+    <button data-target="prasyarat">Materi Prasyarat<span class="dot" id="dot-prasyarat"></span></button>
+    <button data-target="sub11">1.1 Pangkat Bulat<span class="dot" id="dot-sub11"></span></button>
+    <button data-target="sub12">1.2 Sifat Pangkat<span class="dot" id="dot-sub12"></span></button>
+    <button data-target="sub13">1.3 Bentuk Akar<span class="dot" id="dot-sub13"></span></button>
+    <button data-target="sub14">1.4 Notasi Ilmiah<span class="dot" id="dot-sub14"></span></button>
+    <button data-target="game">Zona Permainan</button>
+    <button data-target="rangkuman">Rangkuman</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ================= RINGKASAN BAB ================= -->
+<section class="panel active" id="overview">
+  <div class="section-title">
+    <h2>Ringkasan Bab 1: Bilangan Berpangkat</h2>
+    <p class="desc">Kenapa bab ini penting, dan apa hubungannya dengan yang sudah kamu kuasai di Kelas 7?</p>
+  </div>
+
+  <div class="card">
+    <h3>Dari mana bab ini datang?</h3>
+    <p>Sejak Kelas 7 kamu sudah lancar melakukan <strong>perkalian (x)</strong> dan <strong>pembagian (:)</strong>, serta mengenal <strong>faktor dan kelipatan bilangan</strong>. Bab ini tidak memperkenalkan operasi baru — bab ini memberi <em>notasi baru</em> untuk sesuatu yang sudah kamu bisa: perkalian berulang.</p>
+    <p>Coba tulis <span class="expr">2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2</span>. Panjang, kan? Dengan notasi pangkat, ini cukup ditulis <span class="expr">2<sup>10</sup></span>. Itulah inti Bab 1: bilangan berpangkat adalah "singkatan resmi" untuk perkalian berulang, dan bentuk akar adalah kebalikannya.</p>
+    <div class="grid2">
+      <div class="callout">
+        <span class="lbl">Bekal dari Kelas 7</span>
+        Perkalian &amp; pembagian dasar, serta faktor &amp; kelipatan bilangan — akan kamu pakai lagi saat menyederhanakan bentuk akar dan sifat-sifat pangkat.
+      </div>
+      <div class="callout amber">
+        <span class="lbl">Bekal untuk Bab Selanjutnya</span>
+        Bilangan berpangkat akan muncul lagi di Bab 2 (Teorema Pythagoras, yang memakai pangkat dua dan akar kuadrat) dan dalam pelajaran IPA (notasi ilmiah untuk data sains).
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Contoh kontekstual: kenapa ini dipakai di dunia nyata?</h3>
+    <p>Empat sub-bab di bawah ini semuanya punya versi "dunia nyata"-nya sendiri:</p>
+    <table class="ref">
+      <tr><th>Sub-bab</th><th>Contoh Penerapan Nyata</th></tr>
+      <tr><td>1.1 Bilangan Berpangkat Bulat</td><td>Sebuah bakteri membelah dua setiap jam — pertumbuhannya adalah pola pangkat 2, bukan pola tambah.</td></tr>
+      <tr><td>1.2 Sifat-sifat Pangkat</td><td>Saat sisi kubus diperbesar 3 kali, volumenya tidak menjadi 3 kali tapi 3<sup>3</sup> = 27 kali — dijelaskan lewat sifat pangkat.</td></tr>
+      <tr><td>1.3 Bentuk Akar</td><td>Mencari sisi sebidang tanah persegi kalau yang diketahui hanya luasnya (misalnya 75 m²) butuh bentuk akar.</td></tr>
+      <tr><td>1.4 Notasi Ilmiah</td><td>Jarak Bumi-Matahari (149.600.000 km) dan ukuran virus (0,0000001 m) sama-sama lebih praktis ditulis dengan notasi ilmiah.</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>Peta belajar Bab 1</h3>
+    <p>Klik salah satu kartu untuk langsung menuju bagian itu, atau ikuti urutan dari atas ke bawah.</p>
+    <div class="toc-grid">
+      <div class="toc-card" onclick="goTo('prasyarat')"><div class="tnum">0.0</div><h4>Materi Prasyarat + Mini Tes</h4><p style="margin:0;color:var(--slate);font-size:14px;">Cek kesiapanmu sebelum mulai.</p></div>
+      <div class="toc-card" onclick="goTo('sub11')"><div class="tnum">1.1</div><h4>Bilangan Berpangkat Bulat</h4><p style="margin:0;color:var(--slate);font-size:14px;">Pangkat positif, nol, dan negatif.</p></div>
+      <div class="toc-card" onclick="goTo('sub12')"><div class="tnum">1.2</div><h4>Sifat-sifat Operasi Pangkat</h4><p style="margin:0;color:var(--slate);font-size:14px;">Aturan main menggabungkan pangkat.</p></div>
+      <div class="toc-card" onclick="goTo('sub13')"><div class="tnum">1.3</div><h4>Bentuk Akar</h4><p style="margin:0;color:var(--slate);font-size:14px;">Kebalikan pangkat &amp; penyederhanaannya.</p></div>
+      <div class="toc-card" onclick="goTo('sub14')"><div class="tnum">1.4</div><h4>Notasi Ilmiah (Bentuk Baku)</h4><p style="margin:0;color:var(--slate);font-size:14px;">Menulis bilangan raksasa &amp; super kecil.</p></div>
+      <div class="toc-card" onclick="goTo('game')"><div class="tnum">＋</div><h4>Zona Permainan</h4><p style="margin:0;color:var(--slate);font-size:14px;">Flashcard hitung cepat pangkat.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MATERI PRASYARAT ================= -->
+<section class="panel" id="prasyarat">
+  <div class="section-title">
+    <h2>Materi Prasyarat (Kelas 7)</h2>
+    <p class="desc">Bilangan berpangkat dibangun langsung dari dua kemampuan ini. Yuk cek dulu apakah kamu sudah siap!</p>
+  </div>
+
+  <div class="card">
+    <h3>1. Operasi Perkalian (x) dan Pembagian (:) Dasar</h3>
+    <p>Bilangan berpangkat adalah bentuk singkat dari perkalian berulang dengan bilangan yang <strong>sama</strong>. Karena itu, kelancaranmu berkali dan membagi sangat menentukan seberapa cepat kamu memahami bab ini.</p>
+    <div class="example">
+      <span class="tag">Ingat lagi</span>
+      <span class="expr">6 x 6 x 6 = 216</span> — perkalian tiga bilangan 6 yang sama.<br>
+      <span class="expr">144 : 12 = 12</span> — pembagian yang nanti dipakai saat memahami pangkat negatif.
+    </div>
+
+    <h3>2. Faktor dan Kelipatan Bilangan</h3>
+    <p>Untuk menyederhanakan bentuk akar (Sub-bab 1.3), kamu perlu mencari <strong>faktor kuadrat sempurna</strong> dari sebuah bilangan — ini memakai konsep faktor yang sudah kamu pelajari.</p>
+    <div class="example">
+      <span class="tag">Ingat lagi</span>
+      Faktor dari 48 adalah 1, 2, 3, 4, 6, 8, 12, 16, 24, 48. Faktor 16 adalah faktor kuadrat sempurna (16 = 4<sup>2</sup>) yang akan berguna untuk menyederhanakan &radic;48.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Mini Tes Penguasaan Materi Prasyarat</h3>
+    <p style="color:var(--slate);font-size:14.5px;">10 soal singkat. Kerjakan dulu sebelum lanjut ke Sub-bab 1.1 — hasilnya akan menunjukkan seberapa siap kamu.</p>
+    <div id="prasyarat-quiz"></div>
+    <div class="quiz-summary">
+      <div>
+        <div class="score" id="prasyarat-score">0 / 10</div>
+        <div class="note">Skor mini tes prasyarat</div>
+      </div>
+      <div style="flex:1;max-width:320px;">
+        <div class="gauge-wrap">
+          <div class="gauge-bar"><div class="gauge-fill" id="prasyarat-gauge"></div></div>
+        </div>
+        <div id="prasyarat-verdict" style="font-size:13px;margin-top:6px;color:#C7D3D6;">Jawab semua soal untuk melihat status kesiapanmu.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SUB-BAB 1.1 ================= -->
+<section class="panel" id="sub11">
+  <div class="section-title">
+    <div class="num-badge"><span class="n">1.1</span></div>
+    <h2>Bilangan Berpangkat Bulat (Positif dan Negatif)</h2>
+    <p class="desc">Menyingkat perkalian berulang, lalu memperluas polanya ke pangkat nol dan pangkat negatif.</p>
+  </div>
+
+  <div class="card">
+    <h3>A. Pangkat Positif — Perkalian Berulang</h3>
+    <p><span class="expr">a<sup>n</sup></span> berarti <span class="expr">a</span> dikalikan dengan dirinya sendiri sebanyak <span class="expr">n</span> kali. <span class="expr">a</span> disebut <strong>basis</strong>, dan <span class="expr">n</span> disebut <strong>pangkat (eksponen)</strong>.</p>
+    <div class="callout">
+      <span class="lbl">Bentuk Umum</span>
+      <span class="expr" style="font-size:1.2em;">a<sup>n</sup> = a x a x a x ... x a</span> &nbsp; (sebanyak n faktor a)
+    </div>
+    <p><strong>Ilustrasi konkret:</strong> perhatikan kubus berikut. Kubus bersisi 2 satuan tersusun dari beberapa kubus satuan. Banyak kubus satuan yang membentuknya adalah <span class="expr">2 x 2 x 2 = 2<sup>3</sup></span> — inilah alasan pangkat 3 sering disebut "pangkat tiga" atau "kuadrat kubik", karena berkaitan langsung dengan volume kubus.</p>
+    <div class="tool">
+      <span class="tool-label">Alat Peraga — Menara Pangkat</span>
+      <p style="margin:0 0 10px;font-size:14px;color:var(--slate);">Geser untuk mengubah basis dan pangkat, lalu lihat susunan kubusnya (untuk pangkat 1-3) dan hasil perkaliannya.</p>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:center;">
+        <label style="font-size:13px;">Basis (a): <input type="number" id="tw-base" value="2" min="1" max="6" style="width:60px;"></label>
+        <label style="font-size:13px;">Pangkat (n): <input type="number" id="tw-pow" value="3" min="0" max="6" style="width:60px;"></label>
+        <button class="go" onclick="renderTower()">Tampilkan</button>
+      </div>
+      <div class="block-row" id="tower-blocks"></div>
+      <div class="mono" id="tower-expr" style="margin-top:8px;font-size:15px;"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>B. Pangkat Nol dan Pangkat Negatif — Melihat Polanya</h3>
+    <p>Perhatikan pola pembagian berturut-turut berikut untuk basis 2 (ingat kembali materi <strong>pembagian</strong> dari prasyarat):</p>
+    <table class="ref">
+      <tr><th>Bentuk Pangkat</th><th>Nilai</th><th>Pola</th></tr>
+      <tr><td class="mono">2<sup>4</sup></td><td class="mono">16</td><td>&mdash;</td></tr>
+      <tr><td class="mono">2<sup>3</sup></td><td class="mono">8</td><td>16 : 2</td></tr>
+      <tr><td class="mono">2<sup>2</sup></td><td class="mono">4</td><td>8 : 2</td></tr>
+      <tr><td class="mono">2<sup>1</sup></td><td class="mono">2</td><td>4 : 2</td></tr>
+      <tr><td class="mono">2<sup>0</sup></td><td class="mono">1</td><td>2 : 2</td></tr>
+      <tr><td class="mono">2<sup>-1</sup></td><td class="mono">1/2</td><td>1 : 2</td></tr>
+      <tr><td class="mono">2<sup>-2</sup></td><td class="mono">1/4</td><td>(1/2) : 2</td></tr>
+    </table>
+    <p>Setiap turun satu pangkat, nilainya dibagi 2. Pola ini berlaku untuk basis mana pun (asal basis &ne; 0), sehingga kita mendapat dua aturan penting:</p>
+    <div class="grid2">
+      <div class="callout amber"><span class="lbl">Pangkat Nol</span><span class="expr" style="font-size:1.15em;">a<sup>0</sup> = 1</span>, untuk a &ne; 0</div>
+      <div class="callout amber"><span class="lbl">Pangkat Negatif</span><span class="expr" style="font-size:1.15em;">a<sup>-n</sup> = 1 / a<sup>n</sup></span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Contoh Soal &amp; Pembahasan</h3>
+    <div class="example">
+      <span class="tag">Contoh 1</span>
+      Hitunglah nilai dari <span class="expr">3<sup>4</sup></span>.
+      <div class="solve"><span class="lbl">Pembahasan:</span><br>3<sup>4</sup> = 3 x 3 x 3 x 3 = 81.</div>
+    </div>
+    <div class="example">
+      <span class="tag">Contoh 2</span>
+      Hitunglah nilai dari <span class="expr">5<sup>0</sup></span> dan <span class="expr">5<sup>-2</sup></span>.
+      <div class="solve"><span class="lbl">Pembahasan:</span><br>5<sup>0</sup> = 1 (aturan pangkat nol).<br>5<sup>-2</sup> = 1/5<sup>2</sup> = 1/25.</div>
+    </div>
+    <div class="example">
+      <span class="tag">Contoh 3 — Konteks</span>
+      Selembar kertas dilipat menjadi dua sebanyak 5 kali. Berapa banyak lapisan kertas yang terbentuk?
+      <div class="solve"><span class="lbl">Pembahasan:</span><br>Setiap lipatan mengalikan jumlah lapisan dengan 2, sehingga setelah 5 kali lipatan: 2<sup>5</sup> = 32 lapisan.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Latihan Sub-bab 1.1 (10 Soal, C1-C5)</h3>
+    <div id="quiz-sub11"></div>
+    <div class="quiz-summary">
+      <div><div class="score" id="score-sub11">0 / 10</div><div class="note">Skor latihan 1.1</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SUB-BAB 1.2 ================= -->
+<section class="panel" id="sub12">
+  <div class="section-title">
+    <div class="num-badge"><span class="n">1.2</span></div>
+    <h2>Sifat-sifat Operasi Bilangan Berpangkat</h2>
+    <p class="desc">Aturan-aturan yang membuat perhitungan pangkat jadi jauh lebih singkat.</p>
+  </div>
+
+  <div class="card">
+    <h3>Menemukan Sifat Lewat Penjabaran</h3>
+    <p>Semua sifat pangkat sebenarnya bisa "ditemukan sendiri" hanya dengan menjabarkan ke perkalian berulang, persis seperti di Sub-bab 1.1. Contoh:</p>
+    <div class="callout">
+      <span class="expr">2<sup>3</sup> x 2<sup>2</sup> = (2 x 2 x 2) x (2 x 2) = 2<sup>5</sup></span><br>
+      Banyaknya faktor 2 dijumlahkan: 3 + 2 = 5. Karena itu, ketika basisnya sama, mengalikan bentuk pangkat = menjumlahkan pangkatnya.
+    </div>
+
+    <table class="ref">
+      <tr><th>Sifat</th><th>Bentuk</th></tr>
+      <tr><td>Perkalian, basis sama</td><td class="expr">a<sup>m</sup> x a<sup>n</sup> = a<sup>m+n</sup></td></tr>
+      <tr><td>Pembagian, basis sama</td><td class="expr">a<sup>m</sup> : a<sup>n</sup> = a<sup>m-n</sup> &nbsp;(a &ne; 0)</td></tr>
+      <tr><td>Pangkat dari pangkat</td><td class="expr">(a<sup>m</sup>)<sup>n</sup> = a<sup>m x n</sup></td></tr>
+      <tr><td>Pangkat dari perkalian</td><td class="expr">(a x b)<sup>n</sup> = a<sup>n</sup> x b<sup>n</sup></td></tr>
+      <tr><td>Pangkat dari pembagian</td><td class="expr">(a : b)<sup>n</sup> = a<sup>n</sup> : b<sup>n</sup> &nbsp;(b &ne; 0)</td></tr>
+      <tr><td>Pangkat nol &amp; negatif (ulasan)</td><td class="expr">a<sup>0</sup> = 1, &nbsp; a<sup>-n</sup> = 1/a<sup>n</sup></td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>Alat Bantu — Penjabar Sifat Pangkat</h3>
+    <div class="tool">
+      <span class="tool-label">Pilih sifat, lalu lihat penjabarannya</span>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+        <select id="rule-select" style="padding:8px 10px;border-radius:5px;border:1px solid var(--paper-line);font-family:'IBM Plex Mono',monospace;">
+          <option value="mul">Perkalian basis sama (aᵐ x aⁿ)</option>
+          <option value="div">Pembagian basis sama (aᵐ : aⁿ)</option>
+          <option value="pow">Pangkat dari pangkat ((aᵐ)ⁿ)</option>
+        </select>
+        <label style="font-size:13px;">a: <input type="number" id="rule-a" value="2" min="2" max="9" style="width:55px;"></label>
+        <label style="font-size:13px;">m: <input type="number" id="rule-m" value="3" min="0" max="5" style="width:55px;"></label>
+        <label style="font-size:13px;">n: <input type="number" id="rule-n" value="2" min="0" max="5" style="width:55px;"></label>
+        <button class="go" onclick="renderRule()">Jabarkan</button>
+      </div>
+      <div id="rule-output" style="margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:15px;line-height:2;"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Contoh Soal &amp; Pembahasan</h3>
+    <div class="example">
+      <span class="tag">Contoh 1</span>
+      Sederhanakan <span class="expr">3<sup>4</sup> x 3<sup>2</sup></span>, lalu hitung nilainya.
+      <div class="solve"><span class="lbl">Pembahasan:</span><br>3<sup>4</sup> x 3<sup>2</sup> = 3<sup>4+2</sup> = 3<sup>6</sup> = 729.</div>
+    </div>
+    <div class="example">
+      <span class="tag">Contoh 2</span>
+      Sederhanakan <span class="expr">(5<sup>3</sup>)<sup>2</sup></span>.
+      <div class="solve"><span class="lbl">Pembahasan:</span><br>(5<sup>3</sup>)<sup>2</sup> = 5<sup>3 x 2</sup> = 5<sup>6</sup>.</div>
+    </div>
+    <div class="example">
+      <span class="tag">Contoh 3 — Konteks</span>
+      Sebuah kubus kecil bersisi 2 cm diperbesar menjadi kubus bersisi (2 x 3) cm. Gunakan sifat pangkat dari perkalian untuk mencari volume kubus baru.
+      <div class="solve"><span class="lbl">Pembahasan:</span><br>(2 x 3)<sup>3</sup> = 2<sup>3</sup> x 3<sup>3</sup> = 8 x 27 = 216 cm<sup>3</sup>. Bandingkan dengan cara langsung: 6<sup>3</sup> = 216 cm<sup>3</sup> — hasilnya sama.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Latihan Sub-bab 1.2 (10 Soal, C1-C5)</h3>
+    <div id="quiz-sub12"></div>
+    <div class="quiz-summary">
+      <div><div class="score" id="score-sub12">0 / 10</div><div class="note">Skor latihan 1.2</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SUB-BAB 1.3 ================= -->
+<section class="panel" id="sub13">
+  <div class="section-title">
+    <div class="num-badge"><span class="n">1.3</span></div>
+    <h2>Bilangan Bentuk Akar dan Penyederhanaannya</h2>
+    <p class="desc">Kebalikan dari pangkat dua, dan cara membuatnya "serapi mungkin".</p>
+  </div>
+
+  <div class="card">
+    <h3>A. Apa itu Bentuk Akar?</h3>
+    <p><span class="expr">&radic;a</span> (akar kuadrat dari a) adalah bilangan yang jika dikalikan dengan dirinya sendiri menghasilkan a. Ini kebalikan (invers) dari pangkat dua.</p>
+    <div class="callout"><span class="lbl">Ingat</span> Karena 7<sup>2</sup> = 49, maka &radic;49 = 7. Pangkat dua dan akar kuadrat saling membatalkan.</div>
+    <p>Tidak semua bentuk akar menghasilkan bilangan bulat rapi. <span class="expr">&radic;4 = 2</span> (rapi/rasional), tapi <span class="expr">&radic;2</span> tidak bisa disederhanakan menjadi bilangan bulat atau pecahan biasa — nilainya adalah bilangan <strong>irasional</strong>, dan tetap ditulis dalam bentuk akar.</p>
+
+    <h3>B. Menyederhanakan Bentuk Akar</h3>
+    <p>Untuk bentuk akar yang bilangan di dalamnya <strong>bukan</strong> kuadrat sempurna, kita sederhanakan dengan mencari <strong>faktor kuadrat sempurna terbesar</strong> — di sinilah kemampuan mencari <strong>faktor bilangan</strong> dari prasyarat dipakai kembali.</p>
+    <p><strong>Ilustrasi:</strong> bayangkan sebidang tanah persegi berluas 48 m&sup2;. Luas ini bisa dipecah menjadi 16 m&sup2; (kuadrat sempurna) dan 3 m&sup2; sisanya:</p>
+    <div class="callout amber">
+      <span class="expr" style="font-size:1.1em;">&radic;48 = &radic;(16 x 3) = &radic;16 x &radic;3 = 4&radic;3</span>
+    </div>
+
+    <div class="tool">
+      <span class="tool-label">Alat Bantu — Penyederhana Bentuk Akar</span>
+      <div style="display:flex;gap:10px;align-items:center;">
+        <label style="font-size:13px;">Bilangan di bawah akar: <input type="number" id="root-input" value="72" min="1" max="9999"></label>
+        <button class="go" onclick="renderRoot()">Sederhanakan</button>
+      </div>
+      <div id="root-output" style="margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:15px;line-height:1.9;"></div>
+    </div>
+
+    <h3>C. Operasi Bentuk Akar Sejenis</h3>
+    <p>Bentuk akar "sejenis" (angka di bawah akarnya sama) bisa dijumlahkan/dikurangkan seperti suku sejenis pada aljabar:</p>
+    <div class="callout"><span class="expr">a&radic;c &plusmn; b&radic;c = (a &plusmn; b)&radic;c</span></div>
+    <p>Sementara perkalian dua bentuk akar mengikuti: <span class="expr">&radic;a x &radic;b = &radic;(a x b)</span>.</p>
+  </div>
+
+  <div class="card">
+    <h3>Contoh Soal &amp; Pembahasan</h3>
+    <div class="example">
+      <span class="tag">Contoh 1</span>
+      Sederhanakan <span class="expr">&radic;72</span>.
+      <div class="solve"><span class="lbl">Pembahasan:</span><br>72 = 36 x 2, dan 36 adalah kuadrat sempurna (6<sup>2</sup>). Jadi &radic;72 = &radic;36 x &radic;2 = 6&radic;2.</div>
+    </div>
+    <div class="example">
+      <span class="tag">Contoh 2</span>
+      Hitung <span class="expr">3&radic;5 + 2&radic;5</span>.
+      <div class="solve"><span class="lbl">Pembahasan:</span><br>Karena sejenis (sama-sama &radic;5): 3&radic;5 + 2&radic;5 = (3+2)&radic;5 = 5&radic;5.</div>
+    </div>
+    <div class="example">
+      <span class="tag">Contoh 3</span>
+      Hitung <span class="expr">&radic;3 x &radic;12</span>.
+      <div class="solve"><span class="lbl">Pembahasan:</span><br>&radic;3 x &radic;12 = &radic;(3 x 12) = &radic;36 = 6.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Latihan Sub-bab 1.3 (10 Soal, C1-C5)</h3>
+    <div id="quiz-sub13"></div>
+    <div class="quiz-summary">
+      <div><div class="score" id="score-sub13">0 / 10</div><div class="note">Skor latihan 1.3</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SUB-BAB 1.4 ================= -->
+<section class="panel" id="sub14">
+  <div class="section-title">
+    <div class="num-badge"><span class="n">1.4</span></div>
+    <h2>Penulisan Bentuk Baku (Notasi Ilmiah)</h2>
+    <p class="desc">Bagaimana bilangan berpangkat membantu menulis angka raksasa dan angka super kecil.</p>
+  </div>
+
+  <div class="card">
+    <h3>A. Bentuk Baku (Notasi Ilmiah)</h3>
+    <p>Bentuk baku menuliskan bilangan sebagai:</p>
+    <div class="callout amber"><span class="expr" style="font-size:1.2em;">a x 10<sup>n</sup></span>, dengan 1 &le; a &lt; 10, dan n bilangan bulat.</div>
+    <ul>
+      <li>Untuk bilangan <strong>besar</strong> (&ge; 10): n bernilai <strong>positif</strong>, sebanyak langkah koma digeser ke kiri.</li>
+      <li>Untuk bilangan <strong>kecil</strong> (antara 0 dan 1): n bernilai <strong>negatif</strong>, sebanyak langkah koma digeser ke kanan.</li>
+    </ul>
+    <p>Geser slider berikut untuk menjelajah skala ukuran dari yang sangat kecil sampai sangat besar, dan lihat bagaimana masing-masing dituliskan dalam bentuk baku:</p>
+
+    <div class="tool">
+      <span class="tool-label">Alat Bantu — Penjelajah Skala &amp; Notasi Ilmiah</span>
+      <input type="range" id="scale-slider" min="0" max="6" value="3" step="1" oninput="renderScale()">
+      <div id="scale-output" style="margin-top:14px;"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>B. Konversi Dua Arah</h3>
+    <div class="tool">
+      <span class="tool-label">Alat Bantu — Konversi ke Bentuk Baku</span>
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+        <label style="font-size:13px;">Masukkan bilangan biasa: <input type="text" id="conv-input" value="3400000" style="width:160px;"></label>
+        <button class="go" onclick="renderConv()">Ubah ke Bentuk Baku</button>
+      </div>
+      <div id="conv-output" style="margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:15px;"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Contoh Soal &amp; Pembahasan</h3>
+    <div class="example">
+      <span class="tag">Contoh 1</span>
+      Nyatakan 3.400.000 dalam bentuk baku.
+      <div class="solve"><span class="lbl">Pembahasan:</span><br>Koma digeser 6 langkah ke kiri hingga tersisa satu angka bukan nol di depan: 3.400.000 = 3,4 x 10<sup>6</sup>.</div>
+    </div>
+    <div class="example">
+      <span class="tag">Contoh 2</span>
+      Nyatakan 0,0000521 dalam bentuk baku.
+      <div class="solve"><span class="lbl">Pembahasan:</span><br>Koma digeser 5 langkah ke kanan: 0,0000521 = 5,21 x 10<sup>-5</sup>.</div>
+    </div>
+    <div class="example">
+      <span class="tag">Contoh 3</span>
+      Ubah 2,5 x 10<sup>4</sup> ke bentuk biasa.
+      <div class="solve"><span class="lbl">Pembahasan:</span><br>Karena pangkatnya positif (4), koma digeser 4 langkah ke kanan: 2,5 x 10<sup>4</sup> = 25.000.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Latihan Sub-bab 1.4 (10 Soal, C1-C5)</h3>
+    <div id="quiz-sub14"></div>
+    <div class="quiz-summary">
+      <div><div class="score" id="score-sub14">0 / 10</div><div class="note">Skor latihan 1.4</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ZONA PERMAINAN ================= -->
+<section class="panel" id="game">
+  <div class="section-title">
+    <h2>Zona Permainan — Flashcard Hitung Cepat Pangkat</h2>
+    <p class="desc">Latih kecepatan berhitung pangkat dasar dalam 60 detik. Cocok dipakai sebagai selingan seru saat bimbingan privat.</p>
+  </div>
+  <div class="card" style="text-align:center;">
+    <div class="game-stats">
+      <div>Waktu: <span id="game-time" class="mono">60</span>s</div>
+      <div>Skor: <span id="game-score" class="mono">0</span></div>
+      <div>Beruntun: <span id="game-streak" class="mono">0</span></div>
+    </div>
+    <div class="flash-card" id="game-question">Tekan Mulai untuk bermain</div>
+    <div class="game-input">
+      <input type="number" id="game-answer" placeholder="?" disabled onkeydown="if(event.key==='Enter')checkGameAnswer()">
+      <button class="check-btn" id="game-submit" onclick="checkGameAnswer()" disabled>Jawab</button>
+    </div>
+    <button class="reveal-btn" id="game-start" style="margin-top:18px;" onclick="startGame()">Mulai Permainan</button>
+    <p id="game-result" style="margin-top:14px;font-size:14px;color:var(--slate);"></p>
+  </div>
+</section>
+
+<!-- ================= RANGKUMAN ================= -->
+<section class="panel" id="rangkuman">
+  <div class="section-title">
+    <h2>Rangkuman Bab 1</h2>
+    <p class="desc">Kartu rumus ringkas — cocok dibuka lagi menjelang ulangan.</p>
+  </div>
+
+  <div class="ref-card">
+    <h3>1.1 Bilangan Berpangkat Bulat</h3>
+    <table class="ref">
+      <tr><td class="mono">a<sup>n</sup> = a x a x ... x a (n faktor)</td><td>Pangkat positif</td></tr>
+      <tr><td class="mono">a<sup>0</sup> = 1 (a &ne; 0)</td><td>Pangkat nol</td></tr>
+      <tr><td class="mono">a<sup>-n</sup> = 1 / a<sup>n</sup></td><td>Pangkat negatif</td></tr>
+    </table>
+  </div>
+
+  <div class="ref-card">
+    <h3>1.2 Sifat-sifat Operasi Pangkat</h3>
+    <table class="ref">
+      <tr><td class="mono">a<sup>m</sup> x a<sup>n</sup> = a<sup>m+n</sup></td><td>Perkalian, basis sama</td></tr>
+      <tr><td class="mono">a<sup>m</sup> : a<sup>n</sup> = a<sup>m-n</sup></td><td>Pembagian, basis sama</td></tr>
+      <tr><td class="mono">(a<sup>m</sup>)<sup>n</sup> = a<sup>mxn</sup></td><td>Pangkat dari pangkat</td></tr>
+      <tr><td class="mono">(a x b)<sup>n</sup> = a<sup>n</sup> x b<sup>n</sup></td><td>Pangkat dari perkalian</td></tr>
+      <tr><td class="mono">(a : b)<sup>n</sup> = a<sup>n</sup> : b<sup>n</sup></td><td>Pangkat dari pembagian</td></tr>
+    </table>
+  </div>
+
+  <div class="ref-card">
+    <h3>1.3 Bentuk Akar</h3>
+    <table class="ref">
+      <tr><td class="mono">&radic;a x &radic;b = &radic;(a x b)</td><td>Perkalian akar</td></tr>
+      <tr><td class="mono">a&radic;c &plusmn; b&radic;c = (a&plusmn;b)&radic;c</td><td>Suku akar sejenis</td></tr>
+      <tr><td>Sederhanakan dengan faktor kuadrat sempurna terbesar</td><td>Strategi utama</td></tr>
+    </table>
+  </div>
+
+  <div class="ref-card">
+    <h3>1.4 Notasi Ilmiah</h3>
+    <table class="ref">
+      <tr><td class="mono">a x 10<sup>n</sup>, 1 &le; a &lt; 10</td><td>Bentuk baku</td></tr>
+      <tr><td>Bilangan besar &rarr; n positif</td><td>Koma bergeser ke kiri</td></tr>
+      <tr><td>Bilangan kecil (0-1) &rarr; n negatif</td><td>Koma bergeser ke kanan</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>Sudah menguasai semuanya?</h3>
+    <p style="color:var(--slate);">Bab 1 menyiapkanmu untuk Bab 2: Teorema Pythagoras, yang memakai pangkat dua dan akar kuadrat secara langsung. Kalau skor latihan di tiap sub-bab masih di bawah 7/10, ada baiknya diulang dulu sebelum lanjut.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="page">Modul Interaktif Matematika Kelas 8 · Bab 1: Bilangan Berpangkat · Kurikulum Merdeka</footer>
+
+<script>
+/* ============ TAB NAVIGATION ============ */
+function goTo(id){
+  document.querySelectorAll('section.panel').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('#tabBar button').forEach(b=>b.classList.toggle('active', b.dataset.target===id));
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+document.querySelectorAll('#tabBar button').forEach(btn=>{
+  btn.addEventListener('click', ()=> goTo(btn.dataset.target));
+});
+
+/* ============ QUIZ ENGINE ============ */
+const quizzes = {};
+const scores = {}, mcTotal = {}, essayTotal = {}, mcAnswered = {}, essayReviewed = {};
+
+function levelColor(level){
+  return {C1:'var(--c1)',C2:'var(--c2)',C3:'var(--c3)',C4:'var(--c4)',C5:'var(--c5)'}[level] || 'var(--slate)';
+}
+
+function renderQuiz(key, containerId, questions){
+  quizzes[key] = questions;
+  mcTotal[key] = questions.filter(q=>q.type==='mc').length;
+  essayTotal[key] = questions.filter(q=>q.type==='essay').length;
+  scores[key]=0; mcAnswered[key]=0; essayReviewed[key]=0;
+  let html='';
+  questions.forEach((q,i)=>{
+    html += `<div class="quiz-item" id="${key}-q${i}">`;
+    html += `<div class="qhead"><span class="qnum">Soal ${i+1}</span><span class="badge-c" style="background:${levelColor(q.level)}">${q.level}</span></div>`;
+    html += `<div class="qtext">${q.q}</div>`;
+    if(q.type==='mc'){
+      html += `<div class="opts">`;
+      q.options.forEach((opt,oi)=>{
+        html += `<label class="opt" id="${key}-q${i}-o${oi}"><input type="radio" name="${key}-q${i}" onchange="answerMC('${key}',${i},${oi})"><span>${opt}</span></label>`;
+      });
+      html += `</div><div class="feedback" id="${key}-q${i}-fb"></div>`;
+    } else {
+      html += `<div class="essay-box"><textarea placeholder="Tulis alur penalaranmu di sini (opsional, untuk latihan menjawab)..."></textarea>`;
+      html += `<button class="reveal-btn" onclick="revealModel('${key}',${i})">Lihat Kunci &amp; Pembahasan</button>`;
+      html += `<div class="model-answer" id="${key}-q${i}-model">${q.model}</div></div>`;
+    }
+    html += `</div>`;
+  });
+  document.getElementById(containerId).innerHTML = html;
+  updateSummary(key);
+}
+
+function answerMC(key,i,oi){
+  const q = quizzes[key][i];
+  const item = document.getElementById(key+'-q'+i);
+  if(item.dataset.answered) return;
+  item.dataset.answered = "1";
+  q.options.forEach((opt,idx)=>{
+    const el = document.getElementById(key+'-q'+i+'-o'+idx);
+    el.querySelector('input').disabled = true;
+    if(idx===q.correct) el.classList.add('correct');
+    else if(idx===oi) el.classList.add('wrong');
+  });
+  const fb = document.getElementById(key+'-q'+i+'-fb');
+  fb.classList.add('show');
+  mcAnswered[key] = (mcAnswered[key]||0)+1;
+  if(oi===q.correct){
+    fb.classList.add('ok');
+    fb.innerHTML = '<strong>Benar!</strong> '+q.explain;
+    scores[key] = (scores[key]||0)+1;
+  } else {
+    fb.classList.add('bad');
+    fb.innerHTML = '<strong>Belum tepat.</strong> '+q.explain;
+  }
+  updateSummary(key);
+}
+
+function revealModel(key,i){
+  const m = document.getElementById(key+'-q'+i+'-model');
+  m.classList.add('show');
+  const item = document.getElementById(key+'-q'+i);
+  if(!item.dataset.reviewed){
+    item.dataset.reviewed = "1";
+    essayReviewed[key] = (essayReviewed[key]||0)+1;
+    updateSummary(key);
+  }
+}
+
+function updateSummary(key){
+  if(key==='prasyarat'){
+    const total = mcTotal[key];
+    const sc = scores[key]||0;
+    const answered = mcAnswered[key]||0;
+    document.getElementById('prasyarat-score').textContent = sc+' / '+total;
+    document.getElementById('prasyarat-gauge').style.width = (total? (sc/total*100):0)+'%';
+    const verdictEl = document.getElementById('prasyarat-verdict');
+    if(answered < total){
+      verdictEl.textContent = answered+' dari '+total+' soal terjawab...';
+    } else if(sc>=8){
+      verdictEl.textContent = 'Siap lanjut! Kamu sudah menguasai materi prasyarat dengan baik.';
+    } else if(sc>=5){
+      verdictEl.textContent = 'Cukup siap - baca ulang bagian yang masih keliru sebelum lanjut ke Sub-bab 1.1.';
+    } else {
+      verdictEl.textContent = 'Sebaiknya ulas dulu perkalian, pembagian, faktor, dan kelipatan sebelum melanjutkan.';
+    }
+    if(answered===total){ const d=document.getElementById('dot-prasyarat'); if(d) d.classList.add('done'); }
+  } else {
+    const sc = scores[key]||0, mt = mcTotal[key]||0;
+    const er = essayReviewed[key]||0, et = essayTotal[key]||0;
+    const el = document.getElementById('score-'+key);
+    if(el) el.textContent = sc+'/'+mt+' PG benar · '+er+'/'+et+' esai ditinjau';
+    if((mcAnswered[key]||0)===mt && er===et){
+      const dot = document.getElementById('dot-'+key);
+      if(dot) dot.classList.add('done');
+    }
+  }
+}
+
+/* ============ QUESTION DATA ============ */
+const qPrasyarat = [
+  {type:'mc', level:'C1', q:'7 x 8 = ...', options:['54','56','64','49'], correct:1, explain:'7 x 8 = 56.'},
+  {type:'mc', level:'C1', q:'144 : 12 = ...', options:['10','11','12','14'], correct:2, explain:'144 : 12 = 12.'},
+  {type:'mc', level:'C1', q:'Faktor dari 24 adalah ...', options:['1, 2, 3, 4, 6, 8, 12, 24','1, 2, 4, 6, 8, 24 saja','2, 3, 4, 6','24 saja'], correct:0, explain:'Semua bilangan yang habis membagi 24 adalah 1, 2, 3, 4, 6, 8, 12, 24.'},
+  {type:'mc', level:'C2', q:'Kelipatan 6 yang kurang dari 30 adalah ...', options:['6, 12, 18, 24','6, 16, 26','6, 12, 20, 26','12, 18, 24, 30'], correct:0, explain:'Kelipatan 6: 6, 12, 18, 24, 30, ... yang kurang dari 30 adalah 6, 12, 18, 24.'},
+  {type:'mc', level:'C2', q:'Faktor persekutuan dari 12 dan 18 adalah ...', options:['1, 2, 3, 4, 6, 9, 12, 18 (semua faktor keduanya)','1, 2, 3, 6','1, 2, 3, 4, 6','6 saja'], correct:1, explain:'Faktor 12: 1,2,3,4,6,12. Faktor 18: 1,2,3,6,9,18. Faktor persekutuannya: 1, 2, 3, 6.'},
+  {type:'mc', level:'C1', q:'9 x 9 = ...', options:['72','81','86','99'], correct:1, explain:'9 x 9 = 81.'},
+  {type:'mc', level:'C2', q:'96 : 8 = ...', options:['10','11','12','13'], correct:2, explain:'96 : 8 = 12.'},
+  {type:'mc', level:'C3', q:'Faktor prima dari 36 adalah ...', options:['2 dan 3','2, 3, dan 6','3 dan 6','4 dan 9'], correct:0, explain:'36 = 2 x 2 x 3 x 3, sehingga faktor primanya hanya 2 dan 3 (6, 4, 9 bukan bilangan prima).'},
+  {type:'mc', level:'C3', q:'KPK dari 4 dan 6 adalah ...', options:['10','12','24','6'], correct:1, explain:'Kelipatan 4: 4,8,12,16... Kelipatan 6: 6,12,18... KPK-nya adalah 12.'},
+  {type:'mc', level:'C3', q:'FPB dari 20 dan 30 adalah ...', options:['5','10','15','20'], correct:1, explain:'Faktor 20: 1,2,4,5,10,20. Faktor 30: 1,2,3,5,6,10,15,30. FPB-nya adalah 10.'}
+];
+
+const qSub11 = [
+  {type:'mc', level:'C1', q:'Pada bentuk pangkat 5<sup>7</sup>, angka 5 disebut ... dan angka 7 disebut ...', options:['basis dan pangkat','pangkat dan basis','hasil dan basis','basis dan hasil'], correct:0, explain:'Angka yang dikalikan berulang (5) disebut basis, dan angka yang menunjukkan banyaknya perkalian (7) disebut pangkat/eksponen.'},
+  {type:'mc', level:'C1', q:'Bentuk perkalian berulang 4 x 4 x 4 x 4 x 4 dapat ditulis dalam bentuk pangkat sebagai ...', options:['4<sup>5</sup>','5<sup>4</sup>','4 x 5','5 x 4'], correct:0, explain:'Ada 5 faktor 4 yang dikalikan, sehingga ditulis 4 pangkat 5, yaitu 4<sup>5</sup>.'},
+  {type:'mc', level:'C2', q:'Nilai dari 2<sup>6</sup> adalah ...', options:['12','36','64','128'], correct:2, explain:'2<sup>6</sup> = 2x2x2x2x2x2 = 64.'},
+  {type:'mc', level:'C2', q:'Nilai dari 10<sup>0</sup> adalah ...', options:['0','1','10','tidak terdefinisi'], correct:1, explain:'Untuk basis bukan nol, pangkat nol selalu bernilai 1.'},
+  {type:'mc', level:'C3', q:'Nilai dari 3<sup>-2</sup> adalah ...', options:['1/9','-9','9','-1/9'], correct:0, explain:'3<sup>-2</sup> = 1/3<sup>2</sup> = 1/9.'},
+  {type:'mc', level:'C3', q:'Sebuah bakteri membelah menjadi dua setiap 1 jam. Jika mula-mula ada 1 bakteri, banyak bakteri setelah 6 jam adalah ...', options:['6','12','32','64'], correct:3, explain:'Setiap jam banyak bakteri dikali 2, sehingga setelah 6 jam: 1 x 2<sup>6</sup> = 64 bakteri.'},
+  {type:'mc', level:'C4', q:'Manakah pernyataan berikut yang benar?', options:['2<sup>5</sup> lebih besar dari 5<sup>2</sup>','5<sup>2</sup> lebih besar dari 2<sup>5</sup>','2<sup>5</sup> sama dengan 5<sup>2</sup>','2<sup>5</sup> dan 5<sup>2</sup> tidak bisa dibandingkan'], correct:0, explain:'2<sup>5</sup> = 32 dan 5<sup>2</sup> = 25, sehingga 2<sup>5</sup> lebih besar.'},
+  {type:'essay', level:'C4', q:'Seorang siswa menulis (-2)<sup>4</sup> = -16. Menurutmu, benarkah jawaban tersebut? Jelaskan letak kesalahannya jika salah.', model:'<strong>Jawaban model:</strong> Pernyataan tersebut salah. (-2)<sup>4</sup> berarti (-2) x (-2) x (-2) x (-2). Karena banyaknya faktor negatif genap (4 faktor), hasil kalinya positif, sehingga (-2)<sup>4</sup> = 16, bukan -16. Kesalahan ini biasanya terjadi karena hanya memangkatkan angka 2 lalu memberi tanda minus di depan, padahal tanda minus seharusnya ikut dipangkatkan karena berada di dalam tanda kurung.'},
+  {type:'essay', level:'C5', q:'Selembar kertas setebal 0,1 mm dilipat menjadi dua berulang kali. Setelah dilipat 10 kali, berapa tebal tumpukan kertas tersebut (dalam mm)? Apa yang bisa kamu simpulkan tentang kecepatan pertumbuhan bilangan berpangkat dari hasil ini?', model:'<strong>Jawaban model:</strong> Setiap lipatan menggandakan ketebalan, sehingga setelah 10 kali lipatan: 0,1 x 2<sup>10</sup> = 0,1 x 1024 = 102,4 mm (lebih dari 10 cm!). Kesimpulannya, pertumbuhan berpangkat (eksponensial) jauh lebih cepat dibanding pertumbuhan biasa (linear).'},
+  {type:'essay', level:'C5', q:'Bandingkan dua cara menabung selama 15 hari: (a) menabung Rp1.000 setiap hari (bertambah tetap/linear), dan (b) mulai dari Rp1 lalu berlipat dua setiap hari (bertambah pangkat/eksponensial). Setelah 15 hari, tabungan mana yang lebih besar? Jelaskan alasannya.', model:'<strong>Jawaban model:</strong> Cara (a): setelah 15 hari terkumpul 15 x Rp1.000 = Rp15.000. Cara (b): pada hari ke-15 saja sudah terkumpul 2<sup>14</sup> = Rp16.384. Tabungan cara (b) jauh lebih besar karena pertumbuhan berpangkat meningkat semakin cepat, sedangkan pertumbuhan linear bertambah dengan jumlah yang selalu sama setiap harinya.'}
+];
+
+const qSub12 = [
+  {type:'mc', level:'C1', q:'Sifat pangkat a<sup>m</sup> x a<sup>n</sup> = ...', options:['a<sup>m+n</sup>','a<sup>m-n</sup>','a<sup>mxn</sup>','tidak bisa disederhanakan'], correct:0, explain:'Jika basis sama, mengalikan bentuk pangkat berarti menjumlahkan pangkatnya: a<sup>m</sup> x a<sup>n</sup> = a<sup>m+n</sup>.'},
+  {type:'mc', level:'C1', q:'Sifat (a<sup>m</sup>)<sup>n</sup> = ...', options:['a<sup>m+n</sup>','a<sup>m-n</sup>','a<sup>mxn</sup>','a<sup>m/n</sup>'], correct:2, explain:'Pangkat dari pangkat dikalikan: (a<sup>m</sup>)<sup>n</sup> = a<sup>mxn</sup>.'},
+  {type:'mc', level:'C2', q:'Bentuk sederhana dari 4<sup>3</sup> x 4<sup>5</sup> adalah ...', options:['4<sup>8</sup>','4<sup>15</sup>','4<sup>2</sup>','8<sup>8</sup>'], correct:0, explain:'4<sup>3</sup> x 4<sup>5</sup> = 4<sup>3+5</sup> = 4<sup>8</sup>.'},
+  {type:'mc', level:'C2', q:'Bentuk sederhana dari 7<sup>6</sup> : 7<sup>2</sup> adalah ...', options:['7<sup>3</sup>','7<sup>4</sup>','7<sup>8</sup>','7<sup>12</sup>'], correct:1, explain:'7<sup>6</sup> : 7<sup>2</sup> = 7<sup>6-2</sup> = 7<sup>4</sup>.'},
+  {type:'mc', level:'C3', q:'Nilai dari 2<sup>3</sup> x 2<sup>4</sup> : 2<sup>5</sup> adalah ...', options:['2','4','8','16'], correct:1, explain:'2<sup>3</sup> x 2<sup>4</sup> : 2<sup>5</sup> = 2<sup>3+4-5</sup> = 2<sup>2</sup> = 4.'},
+  {type:'mc', level:'C3', q:'Nilai dari (3<sup>2</sup>)<sup>3</sup> adalah ...', options:['18','216','729','81'], correct:2, explain:'(3<sup>2</sup>)<sup>3</sup> = 3<sup>2x3</sup> = 3<sup>6</sup> = 729.'},
+  {type:'mc', level:'C4', q:'Manakah penyederhanaan berikut yang SALAH?', options:['2<sup>3</sup> x 2<sup>4</sup> = 2<sup>7</sup>','5<sup>6</sup> : 5<sup>2</sup> = 5<sup>3</sup>','(3<sup>2</sup>)<sup>2</sup> = 3<sup>4</sup>','6<sup>0</sup> = 1'], correct:1, explain:'Yang salah adalah 5<sup>6</sup> : 5<sup>2</sup> = 5<sup>3</sup>; seharusnya 5<sup>6-2</sup> = 5<sup>4</sup>.'},
+  {type:'essay', level:'C4', q:'Seorang siswa mengklaim bahwa a<sup>m</sup> x b<sup>m</sup> = (ab)<sup>2m</sup> untuk sembarang bilangan m. Benarkah klaim ini? Jelaskan.', model:'<strong>Jawaban model:</strong> Klaim tersebut salah. Sifat yang benar adalah a<sup>m</sup> x b<sup>m</sup> = (a x b)<sup>m</sup>, pangkatnya tetap m, tidak digandakan menjadi 2m. Kesalahan ini sering terjadi karena tertukar dengan sifat pangkat dari pangkat (a<sup>m</sup>)<sup>n</sup> = a<sup>mn</sup>.'},
+  {type:'essay', level:'C5', q:'Gunakan sifat pangkat untuk menyederhanakan (2<sup>3</sup> x 3<sup>3</sup>) menjadi bentuk pangkat tunggal dari sebuah perkalian, lalu hitung nilainya. Tuliskan langkah-langkahmu.', model:'<strong>Jawaban model:</strong> Karena pangkatnya sama, gunakan sifat a<sup>n</sup> x b<sup>n</sup> = (a x b)<sup>n</sup> secara terbalik: 2<sup>3</sup> x 3<sup>3</sup> = (2 x 3)<sup>3</sup> = 6<sup>3</sup> = 216.'},
+  {type:'essay', level:'C5', q:'Volume kubus kecil bersisi 2 cm adalah 2<sup>3</sup> cm<sup>3</sup>. Jika sisi kubus diperbesar menjadi (2 x 3) cm menggunakan sifat pangkat dari perkalian, berapa volume kubus baru? Berapa kali lebih besar dibanding kubus lama?', model:'<strong>Jawaban model:</strong> Volume baru = (2x3)<sup>3</sup> = 2<sup>3</sup> x 3<sup>3</sup> = 8 x 27 = 216 cm<sup>3</sup>. Volume lama = 8 cm<sup>3</sup>. Perbandingan = 216 : 8 = 27 kali (= 3<sup>3</sup>). Jadi saat sisi kubus diperbesar k kali, volumenya membesar k<sup>3</sup> kali.'}
+];
+
+const qSub13 = [
+  {type:'mc', level:'C1', q:'Karena 7<sup>2</sup> = 49, maka &radic;49 = ...', options:['6','7','8','49'], correct:1, explain:'Karena 7<sup>2</sup> = 49, maka &radic;49 = 7.'},
+  {type:'mc', level:'C1', q:'Manakah bilangan berikut yang bentuk akarnya BELUM sederhana (masih memiliki faktor kuadrat sempurna)?', options:['&radic;20','&radic;9','&radic;16','&radic;25'], correct:0, explain:'&radic;20 = &radic;(4x5) = 2&radic;5 - masih bisa disederhanakan. &radic;9, &radic;16, &radic;25 sudah berupa bilangan bulat.'},
+  {type:'mc', level:'C2', q:'Bentuk sederhana dari &radic;32 adalah ...', options:['2&radic;8','4&radic;2','8&radic;2','16&radic;2'], correct:1, explain:'32 = 16 x 2, dan 16 kuadrat sempurna. &radic;32 = &radic;16 x &radic;2 = 4&radic;2.'},
+  {type:'mc', level:'C2', q:'Hasil dari &radic;50 adalah ...', options:['5&radic;2','2&radic;5','10&radic;5','25&radic;2'], correct:0, explain:'50 = 25 x 2. &radic;50 = &radic;25 x &radic;2 = 5&radic;2.'},
+  {type:'mc', level:'C3', q:'Hasil dari 5&radic;3 - 2&radic;3 adalah ...', options:['3&radic;3','3','7&radic;3','3&radic;6'], correct:0, explain:'Karena sejenis: 5&radic;3 - 2&radic;3 = (5-2)&radic;3 = 3&radic;3.'},
+  {type:'mc', level:'C3', q:'Hasil dari &radic;2 x &radic;8 adalah ...', options:['2','4','10','16'], correct:1, explain:'&radic;2 x &radic;8 = &radic;(2x8) = &radic;16 = 4.'},
+  {type:'mc', level:'C4', q:'Manakah penyederhanaan bentuk akar berikut yang SALAH?', options:['&radic;18 = 3&radic;2','&radic;27 = 3&radic;3','&radic;50 = 2&radic;5','&radic;48 = 4&radic;3'], correct:2, explain:'&radic;50 = 2&radic;5 SALAH; yang benar &radic;50 = &radic;(25x2) = 5&radic;2.'},
+  {type:'essay', level:'C4', q:'Seorang siswa mengatakan bahwa &radic;9 + &radic;16 = &radic;25 = 5. Apakah pernyataan ini benar? Jelaskan.', model:'<strong>Jawaban model:</strong> Pernyataan tersebut salah. &radic;a + &radic;b tidak sama dengan &radic;(a+b) secara umum. Perhitungan yang benar: &radic;9 + &radic;16 = 3 + 4 = 7, bukan 5.'},
+  {type:'essay', level:'C5', q:'Luas sebuah persegi adalah 75 cm&sup2;. Tentukan panjang sisi persegi tersebut dalam bentuk akar paling sederhana, lalu jelaskan langkah penyederhanaannya.', model:'<strong>Jawaban model:</strong> Sisi = &radic;75. Karena 75 = 25 x 3 dan 25 kuadrat sempurna: &radic;75 = &radic;25 x &radic;3 = 5&radic;3 cm.'},
+  {type:'essay', level:'C5', q:'Dua bidang tanah berbentuk persegi masing-masing memiliki luas 32 m&sup2; dan 8 m&sup2;. Buktikan bahwa panjang sisi tanah pertama sama dengan dua kali panjang sisi tanah kedua, menggunakan bentuk akar paling sederhana.', model:'<strong>Jawaban model:</strong> Sisi tanah pertama = &radic;32 = &radic;(16x2) = 4&radic;2 m. Sisi tanah kedua = &radic;8 = &radic;(4x2) = 2&radic;2 m. Karena 4&radic;2 = 2 x 2&radic;2, terbukti sisi tanah pertama sama dengan dua kali sisi tanah kedua.'}
+];
+
+const qSub14 = [
+  {type:'mc', level:'C1', q:'Pada bentuk baku a x 10<sup>n</sup>, nilai koefisien a harus berada pada rentang ...', options:['0 &lt; a &lt; 1','1 &le; a &lt; 10','1 &lt; a &le; 10','a &ge; 10'], correct:1, explain:'Syarat bentuk baku adalah 1 &le; a &lt; 10.'},
+  {type:'mc', level:'C1', q:'Bentuk penulisan 7,2 x 10<sup>5</sup> disebut ...', options:['bentuk baku (notasi ilmiah)','bentuk desimal biasa','bentuk pecahan','bentuk akar'], correct:0, explain:'Penulisan a x 10 pangkat n dengan 1 &le; a &lt; 10 disebut bentuk baku atau notasi ilmiah.'},
+  {type:'mc', level:'C2', q:'Bentuk baku dari 560.000 adalah ...', options:['5,6 x 10<sup>4</sup>','5,6 x 10<sup>5</sup>','56 x 10<sup>4</sup>','0,56 x 10<sup>6</sup>'], correct:1, explain:'Koma digeser 5 langkah ke kiri: 560.000 = 5,6 x 10<sup>5</sup>.'},
+  {type:'mc', level:'C2', q:'Bentuk baku dari 0,00082 adalah ...', options:['8,2 x 10<sup>-4</sup>','8,2 x 10<sup>4</sup>','0,82 x 10<sup>-3</sup>','82 x 10<sup>-5</sup>'], correct:0, explain:'Koma digeser 4 langkah ke kanan: 0,00082 = 8,2 x 10<sup>-4</sup>.'},
+  {type:'mc', level:'C3', q:'Bentuk biasa dari 3,05 x 10<sup>7</sup> adalah ...', options:['305.000','3.050.000','30.500.000','305.000.000'], correct:2, explain:'Koma digeser 7 langkah ke kanan: 3,05 x 10<sup>7</sup> = 30.500.000.'},
+  {type:'mc', level:'C3', q:'Bentuk biasa dari 6,4 x 10<sup>-3</sup> adalah ...', options:['0,0064','0,064','6.400','0,00064'], correct:0, explain:'Koma digeser 3 langkah ke kiri: 6,4 x 10<sup>-3</sup> = 0,0064.'},
+  {type:'mc', level:'C4', q:'Manakah penulisan bentuk baku berikut yang SALAH?', options:['4,5 x 10<sup>5</sup>','0,45 x 10<sup>6</sup>','9,9 x 10<sup>-2</sup>','1,0 x 10<sup>0</sup>'], correct:1, explain:'0,45 x 10<sup>6</sup> SALAH karena koefisiennya kurang dari 1; bentuk baku yang benar adalah 4,5 x 10<sup>5</sup>.'},
+  {type:'essay', level:'C4', q:'Bandingkan dua bilangan berikut tanpa mengubahnya ke bentuk biasa: 4,2 x 10<sup>5</sup> dan 3,9 x 10<sup>6</sup>. Manakah yang lebih besar? Jelaskan caranya.', model:'<strong>Jawaban model:</strong> Bandingkan dulu pangkatnya: 10<sup>6</sup> lebih besar dari 10<sup>5</sup>, jadi 3,9 x 10<sup>6</sup> lebih besar daripada 4,2 x 10<sup>5</sup>, meskipun koefisien 3,9 sedikit lebih kecil dari 4,2.'},
+  {type:'essay', level:'C5', q:'Jarak Bumi ke Matahari sekitar 149.600.000 km, sedangkan diameter virus corona sekitar 0,00000012 km. Tuliskan kedua ukuran ini dalam bentuk baku, lalu jelaskan mengapa notasi ilmiah lebih praktis dibanding bentuk biasa.', model:'<strong>Jawaban model:</strong> Jarak Bumi-Matahari = 1,496 x 10<sup>8</sup> km. Diameter virus = 1,2 x 10<sup>-7</sup> km. Notasi ilmiah lebih praktis karena tidak perlu menulis banyak angka nol dan memudahkan membandingkan besarnya dua bilangan hanya dari pangkat sepuluhnya.'},
+  {type:'essay', level:'C5', q:'1 kilobyte (KB) data komputer setara dengan 2<sup>10</sup> byte &asymp; 1,024 x 10<sup>3</sup> byte. Jika sebuah folder berukuran 5 gigabyte (1 GB &asymp; 10<sup>9</sup> byte), nyatakan ukuran folder dalam bentuk baku (satuan byte), lalu jelaskan bagaimana pangkat basis 2 dan notasi ilmiah basis 10 sama-sama dipakai dalam dunia teknologi.', model:'<strong>Jawaban model:</strong> Ukuran folder = 5 x 10<sup>9</sup> byte. Dalam dunia komputer, kapasitas penyimpanan dihitung dalam pangkat basis 2 (sistem biner: 2<sup>10</sup>, 2<sup>20</sup>, dst.), sedangkan saat ditampilkan ke pengguna, ukurannya ditulis dalam notasi ilmiah basis 10 agar mudah dibaca. Kedua bentuk pangkat ini dipakai berdampingan untuk keperluan berbeda.'}
+];
+
+renderQuiz('prasyarat','prasyarat-quiz', qPrasyarat);
+renderQuiz('sub11','quiz-sub11', qSub11);
+renderQuiz('sub12','quiz-sub12', qSub12);
+renderQuiz('sub13','quiz-sub13', qSub13);
+renderQuiz('sub14','quiz-sub14', qSub14);
+
+/* ============ TOOL: MENARA PANGKAT (1.1) ============ */
+function renderTower(){
+  const base = parseInt(document.getElementById('tw-base').value)||2;
+  const pow = parseInt(document.getElementById('tw-pow').value)||0;
+  const blocksDiv = document.getElementById('tower-blocks');
+  const exprDiv = document.getElementById('tower-expr');
+  if(pow===0){
+    blocksDiv.innerHTML = '';
+    exprDiv.innerHTML = `${base}<sup>0</sup> = 1 (tidak ada faktor yang dikalikan, hasilnya selalu 1)`;
+    return;
+  }
+  let groupsHtml = '';
+  for(let g=0; g<pow; g++){
+    let cubes = '';
+    for(let c=0;c<base;c++){ cubes += `<div class="cube" style="width:22px;height:22px;"></div>`; }
+    groupsHtml += `<div style="display:flex;gap:3px;padding:6px 10px;border:1px solid #C9D4CB;border-radius:5px;background:#fff;">${cubes}</div>`;
+  }
+  blocksDiv.innerHTML = groupsHtml;
+  const result = Math.pow(base,pow);
+  const factorStr = Array(pow).fill(base).join(' x ');
+  exprDiv.innerHTML = `${base}<sup>${pow}</sup> = ${factorStr} = ${result}`;
+}
+
+/* ============ TOOL: PENJABAR SIFAT PANGKAT (1.2) ============ */
+function formatPow(a,e){
+  if(e>=0) return Math.pow(a,e);
+  return '1/'+Math.pow(a,-e);
+}
+function renderRule(){
+  const type = document.getElementById('rule-select').value;
+  const a = parseInt(document.getElementById('rule-a').value)||2;
+  const m = parseInt(document.getElementById('rule-m').value)||0;
+  const n = parseInt(document.getElementById('rule-n').value)||0;
+  const out = document.getElementById('rule-output');
+  let html = '';
+  if(type==='mul'){
+    const expM = m>0? Array(m).fill(a).join(' x ') : '(tidak ada faktor)';
+    const expN = n>0? Array(n).fill(a).join(' x ') : '(tidak ada faktor)';
+    html = `${a}<sup>${m}</sup> x ${a}<sup>${n}</sup><br>= (${expM}) x (${expN})<br>= ${a}<sup>${m+n}</sup><br>= ${formatPow(a,m+n)}`;
+  } else if(type==='div'){
+    html = `${a}<sup>${m}</sup> : ${a}<sup>${n}</sup><br>= ${a}<sup>${m}-${n}</sup> = ${a}<sup>${m-n}</sup><br>= ${formatPow(a,m-n)}`;
+  } else if(type==='pow'){
+    html = `(${a}<sup>${m}</sup>)<sup>${n}</sup><br>= ${a}<sup>${m} x ${n}</sup> = ${a}<sup>${m*n}</sup><br>= ${formatPow(a,m*n)}`;
+  }
+  out.innerHTML = html;
+}
+
+/* ============ TOOL: PENYEDERHANA BENTUK AKAR (1.3) ============ */
+function simplifyRoot(n){
+  let outside=1, inside=n;
+  for(let i=Math.floor(Math.sqrt(n)); i>=2; i--){
+    if(n % (i*i) === 0){ outside = i; inside = n/(i*i); break; }
+  }
+  return {outside, inside};
+}
+function renderRoot(){
+  const n = parseInt(document.getElementById('root-input').value)||1;
+  const {outside, inside} = simplifyRoot(n);
+  const out = document.getElementById('root-output');
+  if(inside===1){
+    out.innerHTML = `&radic;${n} = ${outside} <br><span style="color:var(--slate);font-size:13px;">${n} adalah kuadrat sempurna (${outside}&sup2; = ${n}).</span>`;
+  } else if(outside===1){
+    out.innerHTML = `&radic;${n} sudah dalam bentuk paling sederhana (tidak memiliki faktor kuadrat sempurna selain 1).`;
+  } else {
+    out.innerHTML = `&radic;${n} = &radic;(${outside*outside} x ${inside}) = &radic;${outside*outside} x &radic;${inside} = ${outside}&radic;${inside}`;
+  }
+}
+
+/* ============ TOOL: SKALA & NOTASI ILMIAH (1.4) ============ */
+const scaleData = [
+  {obj:'Virus', val:0.00000012, label:'Diameter virus corona'},
+  {obj:'Sel darah merah', val:0.000007, label:'Diameter sel darah merah'},
+  {obj:'Semut', val:0.005, label:'Panjang semut'},
+  {obj:'Manusia dewasa', val:1.7, label:'Tinggi manusia dewasa'},
+  {obj:'Gunung Everest', val:8849, label:'Tinggi Gunung Everest'},
+  {obj:'Diameter Bumi', val:12742000, label:'Diameter Bumi'},
+  {obj:'Jarak Bumi-Matahari', val:149600000000, label:'Jarak Bumi ke Matahari'}
+];
+function toScientific(num){
+  if(num===0) return '0';
+  const exp = Math.floor(Math.log10(Math.abs(num)));
+  const mantissa = num / Math.pow(10,exp);
+  let m = mantissa.toFixed(2);
+  m = m.replace(/0+$/,'').replace(/\.$/,'');
+  return m.replace('.',',') + ' x 10<sup>'+exp+'</sup>';
+}
+function renderScale(){
+  const idx = parseInt(document.getElementById('scale-slider').value);
+  const d = scaleData[idx];
+  const out = document.getElementById('scale-output');
+  out.innerHTML = `<div class="callout"><span class="lbl">${d.obj}</span>${d.label}: <span class="mono">${d.val}</span> meter &rarr; bentuk baku: <span class="mono">${toScientific(d.val)}</span> meter</div>`;
+}
+function renderConv(){
+  let raw = document.getElementById('conv-input').value.trim();
+  const num = parseFloat(raw);
+  const out = document.getElementById('conv-output');
+  if(isNaN(num)){ out.innerHTML = 'Masukkan bilangan yang valid (gunakan titik untuk desimal, contoh: 0.0000521).'; return; }
+  out.innerHTML = `${raw} = <strong>${toScientific(num)}</strong>`;
+}
+
+/* initial renders */
+renderTower();
+renderRule();
+renderRoot();
+renderScale();
+renderConv();
+
+/* ============ ZONA PERMAINAN: FLASHCARD PANGKAT ============ */
+let gameTimer=null, gameSeconds=60, gameScore=0, gameStreak=0, gameCurrent=null;
+function randInt(min,max){return Math.floor(Math.random()*(max-min+1))+min;}
+function newGameQuestion(){
+  const base = randInt(2,9);
+  const pow = randInt(0,4);
+  gameCurrent = {base,pow,answer:Math.pow(base,pow)};
+  document.getElementById('game-question').innerHTML = `${base}<sup>${pow}</sup>`;
+}
+function startGame(){
+  gameScore=0; gameStreak=0; gameSeconds=60;
+  document.getElementById('game-score').textContent=0;
+  document.getElementById('game-streak').textContent=0;
+  document.getElementById('game-time').textContent=60;
+  document.getElementById('game-answer').disabled=false;
+  document.getElementById('game-answer').value='';
+  document.getElementById('game-submit').disabled=false;
+  document.getElementById('game-start').disabled=true;
+  document.getElementById('game-result').textContent='';
+  newGameQuestion();
+  document.getElementById('game-answer').focus();
+  if(gameTimer) clearInterval(gameTimer);
+  gameTimer = setInterval(()=>{
+    gameSeconds--;
+    document.getElementById('game-time').textContent=gameSeconds;
+    if(gameSeconds<=0){ endGame(); }
+  },1000);
+}
+function checkGameAnswer(){
+  if(!gameCurrent) return;
+  const val = parseInt(document.getElementById('game-answer').value);
+  if(val === gameCurrent.answer){ gameScore += 10; gameStreak += 1; }
+  else { gameStreak = 0; }
+  document.getElementById('game-score').textContent = gameScore;
+  document.getElementById('game-streak').textContent = gameStreak;
+  document.getElementById('game-answer').value='';
+  newGameQuestion();
+  document.getElementById('game-answer').focus();
+}
+function endGame(){
+  clearInterval(gameTimer);
+  document.getElementById('game-answer').disabled=true;
+  document.getElementById('game-submit').disabled=true;
+  document.getElementById('game-start').disabled=false;
+  document.getElementById('game-question').textContent='Waktu habis!';
+  document.getElementById('game-result').textContent = `Skor akhir: ${gameScore}. Coba lagi untuk memecahkan rekormu sendiri!`;
+}
+</script>
+</body>
+</html>
